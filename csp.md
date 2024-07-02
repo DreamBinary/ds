@@ -73,6 +73,9 @@ priority_queue
     pq.top();
     pq.empty();
 
+auto cmp = [&nums1, &nums2](const pair<int, int> & a, const pair<int, int> & b) { return nums1[a.first] + nums2[a.second] > nums1[b.first] + nums2[b.second]; };
+priority_queue<pair<int, int>, vector<pair<int, int>>, decltype(cmp)> pq(cmp);
+
 deque
     deque<int> dq;
     dq.push_back(1);
@@ -105,6 +108,11 @@ set_union(v1.begin(), v1.end(), v2.begin(), v2.end(), inserter(v, v.begin()));
 set_difference(v1.begin(), v1.end(), v2.begin(), v2.end(), inserter(v, v.begin()));
 set_intersection(v1.begin(), v1.end(), v2.begin(), v2.end(), inserter(v, v.begin()));
 sort(v.begin(), v.end(), [](int a, int b) { return a > b; });
+
+reverse(v.begin(), v.end());
+vector<int>::iterator it = lower_bound(v.begin(), v.end(), 3); // 第一个大于等于3的元素
+vector<int>::iterator it = upper_bound(v.begin(), v.end(), 3); // 第一个大于3的元素
+
 
 bitset, 圧位
     bitset<10000> s;
